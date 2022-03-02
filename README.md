@@ -2,7 +2,7 @@
      
 Generates GitHub Action Workflows defined using the [Kotlin Github Actions DSL](https://github.com/nefilim/kotlin-github-actions-dsl).
           
-Example:
+## Usage
 
 ```kotlin
 import io.github.nefilim.githubactions.dsl.Job
@@ -62,3 +62,7 @@ githubActionsGenerator {
 }
 
 ```
+
+## Tasks
+
+`generateGithubActions`: Generates the specified workflows in the matching files in the specified output directory

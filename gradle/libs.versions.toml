@@ -4,7 +4,7 @@ kotlin = "1.5.31"
 kotest = "4.6.3"
 logback = "1.2.+"
 kaml = "0.41.0"
-githubActionsDSL = "0.0.2"
+githubActionsDSL = "0.0.3"
 
 gradle-benmanes-versions = "0.42.0"
 gradle-nexus-publish = "1.1.0"

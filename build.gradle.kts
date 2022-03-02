@@ -45,14 +45,14 @@ configurations.all {
  */
 group = "io.github.nefilim.gradle"
 description = "Github Actions Workflow Generator"
-version = "0.0.1" // semver.version
+version = semver.version
 
 inner class ProjectInfo {
     val longName = "Gradle Github Actions Workflow Generator"
     val pluginImplementationClass = "$group.ghagenerator.GithubActionsWorkflowGeneratorPlugin"
     val tags = listOf("github", "actions")
     val website = "https://github.com/nefilim/gradle-github-actions-generator-plugin"
-    val vcsURL = "https://github.com/nefilim/gradle-github-actions-generator-plugin.git"
+    val vcsURL = "$website.git"
 }
 val info = ProjectInfo()
 
@@ -184,7 +184,7 @@ afterEvaluate {
     publishing {
         publications {
             findByName("pluginMaven")?.let { it as MavenPublication }?.apply { addSonaTypeRequirements() }
-            findByName("semver-githubActionsGeneratorPlugin")?.let { it as MavenPublication }?.apply { addSonaTypeRequirements() }
+            findByName("github-actions-generator-pluginPluginMarkerMaven")?.let { it as MavenPublication }?.apply { addSonaTypeRequirements() }
         }
     }
     signing.sign(publishing.publications)
@@ -196,8 +196,7 @@ githubRelease {
     token(githubTokenValue)
     owner("nefilim")
     repo("gradle-github-actions-generator-plugin")
-//    tagName(semver.versionTagName)
-    tagName("v0.0.1")
+    tagName(semver.versionTagName)
     targetCommitish("main")
     body(changelog())
     draft(false)
