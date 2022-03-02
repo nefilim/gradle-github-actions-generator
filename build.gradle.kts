@@ -45,7 +45,7 @@ configurations.all {
  */
 group = "io.github.nefilim.gradle"
 description = "Github Actions Workflow Generator"
-version = "0.0.1" // semver.version
+version = semver.version
 
 inner class ProjectInfo {
     val longName = "Gradle Github Actions Workflow Generator"
@@ -196,8 +196,7 @@ githubRelease {
     token(githubTokenValue)
     owner("nefilim")
     repo("gradle-github-actions-generator-plugin")
-//    tagName(semver.versionTagName)
-    tagName("v0.0.1")
+    tagName(semver.versionTagName)
     targetCommitish("main")
     body(changelog())
     draft(false)
