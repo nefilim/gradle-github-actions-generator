@@ -1,0 +1,31 @@
+[versions]
+kotlin = "1.5.31"
+
+kotest = "4.6.3"
+logback = "1.2.+"
+kaml = "0.41.0"
+githubActionsDSL = "0.0.2"
+
+gradle-benmanes-versions = "0.42.0"
+gradle-nexus-publish = "1.1.0"
+gradle-pluginPublish = "0.20.0"
+github-release = "2.2.12"
+gradle-semverPlugin = "0.3.+"
+
+[libraries]
+kotest-junit5-jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref = "kotest" }
+kotest-assertions-core-jvm = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotest" }
+logbackClassic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+kaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kaml" }
+githubActionsDSL = { module = "io.github.nefilim.githubactions:kotlin-dsl", version.ref = "githubActionsDSL" }
+
+[bundles]
+kotest = [ "kotest-junit5-jvm", "kotest-assertions-core-jvm" ]
+
+[plugins]
+githubrelease = { id = "com.github.breadmoirai.github-release", version.ref = "github-release" }
+gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref = "gradle-pluginPublish" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "gradle-nexus-publish" }
+semver = { id = "io.github.nefilim.gradle.semver-plugin", version.ref = "gradle-semverPlugin" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "gradle-benmanes-versions" }
