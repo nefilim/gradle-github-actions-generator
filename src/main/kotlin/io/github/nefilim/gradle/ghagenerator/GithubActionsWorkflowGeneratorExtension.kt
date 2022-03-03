@@ -1,9 +1,6 @@
 package io.github.nefilim.gradle.ghagenerator
 
-import com.charleskorn.kaml.MultiLineStringStyle
-import com.charleskorn.kaml.SingleLineStringStyle
-import com.charleskorn.kaml.Yaml
-import com.charleskorn.kaml.YamlConfiguration
+import io.github.nefilim.githubactions.dsl.GitHubActionsYAML
 import io.github.nefilim.githubactions.dsl.Workflow
 import org.gradle.api.Project
 import org.gradle.api.file.DirectoryProperty
@@ -30,18 +27,10 @@ abstract class GithubActionsWorkflowGeneratorExtension @Inject constructor(objec
     }
 
     internal fun generateWorkflows() {
-        val yaml = Yaml(
-            configuration = YamlConfiguration(
-                breakScalarsAt = 200,
-                multiLineStringStyle = MultiLineStringStyle.Literal,
-                singleLineScalarStyle = SingleLineStringStyle.SingleQuoted,
-            )
-        )
-
         workflows.get().forEach { (filename, workflow) ->
             logger.gha("generating flow for [${workflow.name}] to [${outputDirectory.get()}/$filename]")
             File("${outputDirectory.get()}/$filename").printWriter().use { out ->
-                out.println(yaml.encodeToString(Workflow.serializer(), workflow))
+                out.println(GitHubActionsYAML.encodeToString(Workflow.serializer(), workflow))
             }
         }
     }
