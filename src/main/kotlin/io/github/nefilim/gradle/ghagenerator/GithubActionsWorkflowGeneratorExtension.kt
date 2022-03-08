@@ -1,7 +1,7 @@
 package io.github.nefilim.gradle.ghagenerator
 
-import io.github.nefilim.githubactions.dsl.GitHubActionsYAML
-import io.github.nefilim.githubactions.dsl.Workflow
+import io.github.nefilim.githubactions.GitHubActionsYAML
+import io.github.nefilim.githubactions.domain.Workflow
 import org.gradle.api.Project
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.logging.Logger
