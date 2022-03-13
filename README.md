@@ -5,12 +5,12 @@ Generates GitHub Action Workflows defined using the [Kotlin Github Actions DSL](
 ## Usage
 
 ```kotlin
-import io.github.nefilim.githubactions.dsl.Job
-import io.github.nefilim.githubactions.dsl.Step
-import io.github.nefilim.githubactions.dsl.actions.CheckoutAction
-import io.github.nefilim.githubactions.dsl.actions.GradleBuildAction
-import io.github.nefilim.githubactions.dsl.githubRef
-import io.github.nefilim.githubactions.dsl.secretRef
+import io.github.nefilim.githubactions.domain.WorkflowCommon.Job
+import io.github.nefilim.githubactions.domain.WorkflowCommon.Job.Step
+import io.github.nefilim.githubactions.actions.CheckoutActionV3
+import io.github.nefilim.githubactions.actions.GradleBuildActionV2
+import io.github.nefilim.githubactions.githubRef
+import io.github.nefilim.githubactions.secretRef
 import io.github.nefilim.githubactions.dsl.workflow
 
 plugins {
