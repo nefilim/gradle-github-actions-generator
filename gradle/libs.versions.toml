@@ -3,8 +3,8 @@ kotlin = "1.5.31"
 
 kotest = "4.6.3"
 logback = "1.2.+"
-kaml = "0.41.0"
-githubActionsDSL = "0.1.0"
+kaml = "0.43.0"
+githubActionsDSL = "0.2.+"
 
 gradle-benmanes-versions = "0.42.0"
 gradle-nexus-publish = "1.1.0"
@@ -17,7 +17,8 @@ kotest-junit5-jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref
 kotest-assertions-core-jvm = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotest" }
 logbackClassic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 kaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kaml" }
-githubActionsDSL = { module = "io.github.nefilim.githubactions:kotlin-dsl", version.ref = "githubActionsDSL" }
+githubActionsDSLCore = { module = "io.github.nefilim.githubactions:kotlin-dsl-core", version.ref = "githubActionsDSL" }
+githubActionsDSLActions = { module = "io.github.nefilim.githubactions:kotlin-dsl-actions", version.ref = "githubActionsDSL" }
 
 [bundles]
 kotest = [ "kotest-junit5-jvm", "kotest-assertions-core-jvm" ]
