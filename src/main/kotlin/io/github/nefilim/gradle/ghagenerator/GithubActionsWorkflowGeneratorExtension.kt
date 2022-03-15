@@ -29,6 +29,10 @@ abstract class GithubActionsWorkflowGeneratorExtension @Inject constructor(objec
     internal fun generateWorkflows() {
         workflows.get().forEach { (filename, workflow) ->
             logger.gha("generating flow for [${workflow.name}] to [${outputDirectory.get()}/$filename]")
+            File(outputDirectory.get().toString()).mkdirs().also {
+                if (it)
+                    logger.gha("created missing output directory [${outputDirectory.get()}]")
+            }
             File("${outputDirectory.get()}/$filename").printWriter().use { out ->
                 out.println(GitHubActionsYAML.encodeToString(Workflow.serializer(), workflow))
             }
